@@ -1,4 +1,5 @@
 from enum import Enum
+
 class EnemyType(str, Enum):
     ELEMENTAL       = 'Elemental Lifeforms'
     HILICHURL       = 'Hilichurls'
@@ -19,6 +20,7 @@ class DomainType(str, Enum):
 
 class ItemType(str, Enum):
     GADGET              = 'Gadget'
+    WEAPON              = 'Weapon'
     CURRENCY            = 'Currency'
     GLIDERS             = 'Gliders'
     FOOD                = 'Food'
@@ -36,7 +38,6 @@ class ItemType(str, Enum):
     BOOK                = 'Lore Book'
     FURNITURE_INDOOR    = 'Indoor Furniture'
     FURNITURE_OUTDOOR   = 'Outdoor Furniture'
-
 
 class WeaponType(str, Enum):
     BOW        = 'Bow'
