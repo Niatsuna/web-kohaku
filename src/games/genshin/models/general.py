@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Date, Float, ForeignKey, Integer, String
+from sqlalchemy import Column, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -7,7 +7,7 @@ from database import Base
 class Stat(Base):
     __tablename__ = 'genshin_stats'
 
-    id = Column(Integer, primary_key=True, index=True)
+    uid = Column(Integer, primary_key=True, index=True)
     name_en = Column(String)
     name_de = Column(String)
     attribute_en = Column(String)
@@ -17,6 +17,23 @@ class Stat(Base):
 class Image(Base):
     __tablename__ = 'genshin_images'
 
-    id = Colum(Integer, primary_key=True, index=True)
+    uid = Column(Integer, primary_key=True, index=True)
     path = Column(String)
+
+# >>> Effects
+class Effect(Base):
+    __tablename__ = 'genshin_effects'
+
+    uid = Column(Integer, primary_key=True, index=True)
+    stat_uid = Column(Integer, ForeignKey(Stat.__tablename__ + '.uid'))
+    amount = Column(Float)
+
+class EffectSet(Base):
+    __tablename__ = 'genshin_effect_sets'
+
+    uid = Column(Integer, primary_key=True, index=True)
+    description_en = Column(String)
+    description_de = Column(String)
+    effect_uids = relationship('Effect')
+
 # ============================================================================= #
