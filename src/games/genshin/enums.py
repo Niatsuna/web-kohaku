@@ -1,5 +1,12 @@
 from enum import Enum
 
+class ArtifactType(str, Enum):
+    FLOWER  = 'Flower'
+    FEATHER = 'Feather'
+    CIRCLET = 'Circlet'
+    GOBLET  = 'Goblet'
+    HELMET  = 'Helmet'
+
 class EnemyType(str, Enum):
     ELEMENTAL       = 'Elemental Lifeforms'
     HILICHURL       = 'Hilichurls'
