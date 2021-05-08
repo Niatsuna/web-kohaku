@@ -66,12 +66,13 @@ async def get_build(identifier : int):
 @router.get('/api/genshin/character',
     summary='Returns a list of characters',
     tags=['Genshin'])
-async def get_characters(skip : int = 0, limit : int = 200, rarity : int = 0, region : str = '', region_id : int = -1, weapon : WeaponType = None, vision : VisionType = None):
+async def get_characters(skip : int = 0, limit : int = 200, live : bool = None, rarity : int = 0, region : str = '', region_id : int = -1, weapon : WeaponType = None, vision : VisionType = None):
     '''
     Returns a list of characters that are fullfilling the given criteria.
 
     - **skip** : Skips the first elements to the given index. 
     - **limit** : Maximal amount of results in the list.
+    - **live** : Status of character: Already released (True) , only leaked (False) or should be ignored (None)
     - **rarity** :  Searched rarity. Example: `rarity = 4` return only 4-star units.
     - **region** : Name of the region the character is from.
     - **region_id** : id of the region the character is from (prioritized)
